@@ -1,0 +1,181 @@
+
+/*
+ *  Packs
+ */
+.Batches-main {
+  width: 100%;
+}
+.BottleStore-main {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+}
+.BottleStore-blurb-tip,
+.BottleStore-blurb {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  min-width: 420px;
+  margin: 50px 0px 0px 0px;
+  padding: 20px 30px 30px 30px;
+  background-color: var(--color-header);
+  color: var(--color-special);
+}
+.BottleStore-blurb>div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.BottleStore-blurb>div>img {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+}
+.BottleStore-blurb p {
+  width: 100%;
+  margin: 10px
+}
+.BottleStore-blurb-tip {
+  margin-top: 0;
+  color: var(--color-font);
+  justify-content: center;
+}
+.BottleStore-blurb-tip>.clickable:before,
+.BottleStore-blurb-tip>.clickable:after {
+  content: "-";
+  cursor: default;
+  color: var(--color-header);
+}
+
+.BottleStore-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.BottleStore-pack {
+  margin: 0 10px 10px 10px;
+  padding: 10px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.scene-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.pack-holder {
+  flex-grow: 1;
+  border-radius: 100% 0 0 100%;
+  background: var(--color-header);
+}
+
+.BottleStore-pack .col div:first-child {
+  flex-grow: 1;
+}
+.BottleStore-pack .pack {
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    /* background: var(--color-special); */
+    border: solid 8px var(--color-header);
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+.pack>img {
+  width: 128%;
+  height: 128%;
+  position: absolute;
+}
+.static {
+  position: relative;
+  z-index: 3;
+}
+.static:hover {
+  opacity: 0;
+}
+.active {
+  z-index: 2;
+}
+.pack>.bg {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  font-size: 32pt;
+  display: flex;
+  color: var(--color-font);
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.BottleStore-pack .pack .col {
+  position: relative;
+  top: -12px;
+  height: 0;
+}
+
+.BottleStore-pack .col {
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.scene-details {
+  padding-right: 30px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: inherit;
+  justify-content: space-evenly;
+  background: var(--color-header);
+}
+.scene-details>.col>.buy-tiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.scene-details>.col>.buy-tiles>img {
+  margin-right: 8px;
+  width: 42px;
+}
+
+.BottleStore-modal>div {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+.BottleStore-modal>.input-div {
+  justify-content: center;
+}
+.BottleStore-modal input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-header);
+  font-size: 14pt;
+  align-self: center;
+  color: var(--color-special);
+  width: 60px;
+  text-align: center;
+}
+.BottleStore-modal input:focus {
+  border: none;
+  outline: none;
+  border-bottom:1px solid var(--color-special);
+}
