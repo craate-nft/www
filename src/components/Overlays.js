@@ -72,7 +72,7 @@ export const MintBottleModal = (props) => {
     if (rsp) {
       setTx(rsp.tx);
       setTxPending(false);
-      props.updateBatchInfo(props.batchId);
+      window.location.href = 'http://craatenft.com';
     }
   }
 

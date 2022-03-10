@@ -33,11 +33,11 @@ const TileStore = (props) => {
 
   //////////////////////////////////////////////////////////////////////////////
 
-  const updateBatchInfo = async (sidx) => {
-    let desc = await getAllBatchInfo(bottle, user, sidx);
+  const updateBatchInfo = async (bidx) => {
+    let desc = await getAllBatchInfo(bottle, user, bidx);
     let found = false;
     let _batches = batches.map((bdesc) => {
-      if (bdesc.sceneId === desc.sceneId) {
+      if (bdesc.batchId === desc.batchId) {
         found = true;
         return desc;
       }
