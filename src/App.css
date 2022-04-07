@@ -472,6 +472,9 @@ a.clickable:visited {
 .footer .reddit:hover>:before {
   content: "Reddit";
 }
+.footer .twitter:hover>:before {
+  content: "Twitter";
+}
 
 .faq-main {
   display: flex;
