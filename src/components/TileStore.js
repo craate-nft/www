@@ -122,7 +122,7 @@ const TileStore = (props) => {
           close={() => {setBuyBottlesForBatchId(-1)}} />
 
         <div className="BottleStore-list">
-          <h4>Current batches</h4>
+          {/* removing this header <h4>Current batches</h4> */}
           {batchesDOM}
         </div>
     </>

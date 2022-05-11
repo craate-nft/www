@@ -9,10 +9,45 @@
     url("fonts/regular.ttf");
 }
 
+/*
+ * Logo/Nav Font
+ */
+@font-face {
+  font-family: Acier;
+  src:
+    local("Acier Font"),
+    local("Acier-Font"),
+    url("fonts/acier.ttf");
+}
+
+/*
+ * Main Font
+ */
+@font-face {
+  font-family: Athelas;
+  src:
+    local("Athelas Font"),
+    local("Athelas-Font"),
+    url("fonts/athelas.ttf");
+}
+
 html, body {
+  /* old
   --color-font: #0b0c0c;
   --color-special: #1e8bd4;
-  --color-background: #e8e8fe;
+  
+  --color-header: #ffffff;
+  --color-header-alpha: #ffffff80;
+  */
+
+  --color-font: #333333;
+  --color-overlay-alpha: #333333CC;
+  --color-background-secondary: #e9e9e9;
+  --color-background-primary: #ffffff;
+  --color-red: #8c3939;
+  --color-yellow: #a27d25;
+
+  --color-special: #1e8bd4;
   --color-header: #ffffff;
   --color-header-alpha: #ffffff80;
 
@@ -21,8 +56,8 @@ html, body {
   height: 100%;
 
   color: var(--color-font);
-  background: var(--color-background);
-  font-family: EtherScapesFont;
+  background: var(--color-background-primary);
+  font-family: Athelas;
 }
 
 #root {
@@ -53,7 +88,7 @@ html, body {
   max-width: 70%;
   height: auto;
   padding: 20px;
-  background-color: var(--color-background);
+  background-color: var(--color-background-secondary);
 }
 
 .error {
@@ -97,6 +132,8 @@ html, body {
 /*
  *  Header rules.
  */
+
+/* old
 .App-header {
   display: flex;
   flex-direction: row;
@@ -105,7 +142,6 @@ html, body {
   justify-content: flex-start;
   align-items: center;
 }
-
 .link,
 .App-header a {
   margin: 20px;
@@ -130,10 +166,119 @@ html, body {
   margin-right: 20px;
 }
 
+*/
+.App-header {
+  z-index: 1; /* required to show above background */
+
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+}
+
+.App-header-title {
+  width: 100%;
+  height: 125px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("./img/crate.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.App-header-title h1 {
+  font-family: Acier;
+  font-size: 50px;
+  text-align: center;
+
+  color: var(--color-background-secondary);
+
+  padding-top: 10px;
+}
+
+/* nav bar */
+.App-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Acier;
+
+  padding-top: 20px;
+}
+
+.App-nav a {
+  text-decoration: none;
+  color: var(--color-background-secondary);
+
+  font-size: 14px;
+
+  padding: 0 20px 0 20px;
+
+  display:inline-block; 
+
+  position: relative;
+}
+
+.App-nav a:not(:last-child)::after {
+  content:""; 
+  
+  background-color: var(--color-background-secondary);
+  width: 2px;
+  height: 70%;
+
+  position:absolute; 
+  right:-3px; 
+  top:0;
+}
+
+.App-nav a.isActive {
+  color: var(--color-yellow);
+}
+
+/* hover rule not applied to active. change? also unsure of hover should be red. change as needed */
+.App-nav a:not(.isActive):hover {
+  color: var(--color-red);
+}
+
+
+/*
+ * Background covers upper part, behind header
+ * Root is image, -overlay is translucent black
+ */
+.App-background {
+  position: absolute;
+  top: 0;
+
+  height: 500px;
+  width: 100%;
+
+  background-image: url("./img/grapes.jpg");
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+
+.App-background-overlay {
+  height: 100%;
+
+  background-color: var(--color-overlay-alpha);
+}
+
 /*
  *  Body spans rest of space.
  */
 .App-body {
+  z-index: 1; /* required to show above background */
   display: flex;
   justify-content: center;
   overflow-y: scroll;
@@ -243,7 +388,7 @@ a.clickable:visited {
 .puzzle-name-input>input {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--color-background);
+  border-bottom: 1px solid var(--color-background-secondary);
   font-size: 14pt;
   color: var(--color-special);
   flex-grow: 1;
@@ -445,7 +590,7 @@ a.clickable:visited {
   display: flex;
   width: calc(100vw - 60px);
   height: 50px;
-  background-color: var(--color-background);
+  background-color: var(--color-background-secondary);
   color: var(--color-font);
   padding: 0 30px;
   align-items: center;
