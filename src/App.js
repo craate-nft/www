@@ -3,11 +3,12 @@
  */
 
 import React, { useState, useCallback, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+
 import ReactTooltip from "react-tooltip";
 
 import Web3 from "web3";
 
+import NavBar from "./components/NavBar.js";
 import MainLayout from "./pages/MainLayout.js";
 import {Footer} from "./components/Footer.js";
 
@@ -133,48 +134,16 @@ const App = (props) => {
   ////////////////////////////////////////////////////////////////////////////
   return (
     <div className="App">
-      <div className="App-header">
-        <div className="App-header-title">
-          <h1>CRAATE NFT</h1>
-        </div>
-        <div className="App-nav">
-          <NavLink exact activeClassName="isActive" to="/" data-tip data-for="networkInfoTooltip">Home</NavLink>
-          <NavLink exact activeClassName="isActive" to="/about">About Us</NavLink>
-          <NavLink exact activeClassName="isActive" to="/vinyards">Vinyards</NavLink>
-          <NavLink exact activeClassName="isActive" to="/contact">Contact Us</NavLink>
-          <NavLink exact activeClassName="isActive" to="/login">Log In</NavLink>
-        </div>
-
-        {/* old
-        <NavLink exact activeClassName="isActive" to="/" data-tip data-for="networkInfoTooltip">
-          Craate NFT
-        </NavLink>
-        <NavLink exact activeClassName="isActive" to="/about">FAQ</NavLink>
-        <div className="grow"></div>
-        <ReactTooltip id="networkInfoTooltip" arrowColor="var(--color-font)" place="bottom">
-          <p>{appStatus}</p>
-        </ReactTooltip>
-        */}
-      </div>
-
       <div className="App-body">
-        <div className="App-scroll">
-          <div style={{flexGrow: 1}}>
-            <MainLayout
-              connectWallet={connectInjectedWallet}
-              connected={connected} activating={activating} active={active}
-              numBatches={numBatches} contractsLoaded={contractsLoaded}
-              user={account} chainId={chainId}
-              bottle={bottle} bottleWrapper={bottleWrapper}
-              error={error}
-            />
-          </div>
-          <Footer style={{marginBottom: "5px"}}/>
-        </div>
-      </div>
-
-      <div className="App-background">
-        <div className="App-background-overlay"></div>
+        <MainLayout
+          connectWallet={connectInjectedWallet}
+          connected={connected} activating={activating} active={active}
+          numBatches={numBatches} contractsLoaded={contractsLoaded}
+          user={account} chainId={chainId}
+          bottle={bottle} bottleWrapper={bottleWrapper}
+          error={error}
+        />
+        <Footer style={{marginBottom: "5px"}}/>
       </div>
     </div>
   );

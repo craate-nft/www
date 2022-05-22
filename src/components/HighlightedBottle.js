@@ -23,7 +23,11 @@ export const HighlightedBottle = (props) => {
          <h1>{props.bottle.name}</h1>
          <h2>{Math.floor(props.bottle.price * 10) / 10} ETH</h2>
          <button onClick={() => props.bottle.Mint()}>Mint Bottle</button>
+         {(props.bottle.sellable) ? (<button onClick={() => props.bottle.Sell()}>Sell Bottle</button>) : ""}
       </div>
+      {(typeof props.closeFunc !== "undefined") ? (
+        <div className="HighlightedBottle-close" onClick={() => props.closeFunc()}>X</div>
+      ) : ""}
     </div>
   );
 }

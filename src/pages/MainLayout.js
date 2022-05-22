@@ -6,6 +6,7 @@ import Batches from "./Batches.js";
 import Bottle from "./Bottle.js";
 
 import About from "./About.js";
+import Collection from "./Collection.js";
 
 const Redirect = (props) => {
   let history = useHistory();
@@ -22,7 +23,10 @@ const MainLayout = (props) => {
         <Batches page="Home" {...props} />
       </Route>
       <Route exact path="/about">
-        <About></About>
+        <About {...props} />
+      </Route>
+      <Route exact path="/collection">
+        <Collection {...props}></Collection>
       </Route>
       <Route exact path="/scene/:sid/puzzle/:pid">
         <PuzzleViewer page="PuzzleViewer" {...props} />

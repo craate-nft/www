@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import HeaderBackground from "../components/HeaderBackground";
 
 const FAQSection = (props) => {
   const [show, setShow] = useState(props.open || false);
@@ -15,9 +16,10 @@ const FAQSection = (props) => {
   );
 }
 
-const About = () => {
+const About = (props) => {
   return (
     <div className="faq-main">
+      <HeaderBackground {...props} />
       <FAQSection question="What is this all about?" open={true}>
         <p>
           Craate NFT is a brand new platform bridging the divide between physical
