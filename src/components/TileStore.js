@@ -5,6 +5,7 @@ import ReactTooltip from "react-tooltip";
 import {Loading} from "./Loading.js";
 import {getAllBatchInfo, bottleImgUri } from "./contractHelpers.js";
 import {MintBottleModal} from "./Overlays.js";
+import {BottlePreview} from "./BottlePreview.js"
 
 import "./TileStore.css";
 
@@ -73,6 +74,8 @@ const TileStore = (props) => {
   const batchesDOM = batches.map((batch, i) => {
     const batchId = batch.batch;
     const cEth = Web3.utils.fromWei(batch.ethCost, "ether");
+    return <BottlePreview name="Test Bottle" icon={require("../img/Caymus.png")} />
+    /*
     return (
       <div key={batchId} className="BottleStore-pack">
         <div className="scene-list">
@@ -103,11 +106,12 @@ const TileStore = (props) => {
             </div>
             {/* {scene.tilesLeft.toNumber() === 0 &&
               <div>All sold out, trade shards to solve puzzles!</div>
-            } */}
+            } }
           </div>
         </div>
       </div>
     );
+    */
   });
 
   return (
@@ -122,7 +126,7 @@ const TileStore = (props) => {
           close={() => {setBuyBottlesForBatchId(-1)}} />
 
         <div className="BottleStore-list">
-          <h4>Current batches</h4>
+          {/* removing this header <h4>Current batches</h4> */}
           {batchesDOM}
         </div>
     </>

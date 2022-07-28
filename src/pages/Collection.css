@@ -1,0 +1,76 @@
+.Collection {
+   width: 100%;
+   height: 100vh;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   background-color: var(--color-font);
+}
+
+.Collection-header {
+   flex: 1;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.Collection-header h1 {
+   font-family: Acier;
+   font-size: 64px;
+   text-align: center;
+
+   margin: 0;
+
+   color: var(--color-background-primary);
+}
+
+.Collection-bottles {
+   flex: 3;
+
+   background-color: var(--color-background-primary);
+
+   overflow-y: auto;
+}
+
+.Collection-bottles-scroll {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   
+   padding: 10px;
+   margin: auto;
+
+   max-width: 1000px;
+}
+
+.Collection-footer {
+   flex: 0.5;
+}
+
+.Collection-selection {
+   width: 100vw;
+   max-width: 100%;
+   height: 100vh;
+   max-height: 100%;
+
+   position: absolute;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.Collection-selection .HighlightedBottle {
+   width: 720px;
+   height: 600px;
+   z-index: 1;
+}
+
+.Collection-selection-overlay {
+   position: absolute;
+   background-color: var(--color-overlay-alpha);
+   width: 100%;
+   height: 100%;
+}

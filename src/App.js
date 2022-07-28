@@ -3,11 +3,12 @@
  */
 
 import React, { useState, useCallback, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+
 import ReactTooltip from "react-tooltip";
 
 import Web3 from "web3";
 
+import NavBar from "./components/NavBar.js";
 import MainLayout from "./pages/MainLayout.js";
 import {Footer} from "./components/Footer.js";
 
@@ -133,32 +134,16 @@ const App = (props) => {
   ////////////////////////////////////////////////////////////////////////////
   return (
     <div className="App">
-
-      <div className="App-header">
-        <NavLink exact activeClassName="isActive" to="/" data-tip data-for="networkInfoTooltip">
-          Craate NFT
-        </NavLink>
-        <NavLink exact activeClassName="isActive" to="/about">FAQ</NavLink>
-        <div className="grow"></div>
-        <ReactTooltip id="networkInfoTooltip" arrowColor="var(--color-font)" place="bottom">
-          <p>{appStatus}</p>
-        </ReactTooltip>
-      </div>
-
       <div className="App-body">
-        <div className="App-scroll">
-          <div style={{flexGrow: 1}}>
-            <MainLayout
-              connectWallet={connectInjectedWallet}
-              connected={connected} activating={activating} active={active}
-              numBatches={numBatches} contractsLoaded={contractsLoaded}
-              user={account} chainId={chainId}
-              bottle={bottle} bottleWrapper={bottleWrapper}
-              error={error}
-            />
-          </div>
-          <Footer style={{marginBottom: "5px"}}/>
-        </div>
+        <MainLayout
+          connectWallet={connectInjectedWallet}
+          connected={connected} activating={activating} active={active}
+          numBatches={numBatches} contractsLoaded={contractsLoaded}
+          user={account} chainId={chainId}
+          bottle={bottle} bottleWrapper={bottleWrapper}
+          error={error}
+        />
+        <Footer style={{marginBottom: "5px"}}/>
       </div>
     </div>
   );

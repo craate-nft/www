@@ -1,0 +1,25 @@
+.BottlePreview {
+   width: 128px;
+   height: 150px;
+
+   display: flex;
+   flex-direction: column;
+
+   cursor: pointer;
+}
+
+.BottlePreview img {
+   width: 100%;
+}
+
+.BottlePreview p {
+   margin: 0;
+   text-align: center;
+
+   color: var(--color-red);
+}
+
+.BottlePreview.selected p,
+.BottlePreview:hover p {
+   color: var(--color-yellow) !important;
+}
